@@ -16,22 +16,28 @@ public class JUnitExecutionListener extends RunListener {
     }
 
     public void testStarted(Description description) throws Exception {
-        System.out.println("Starting: " + description.getMethodName());
+        print("Starting", description);
     }
 
     public void testFinished(Description description) throws Exception {
-        System.out.println("Finished: " + description.getMethodName());
+        print("Finished", description);
     }
 
     public void testFailure(Failure failure) throws Exception {
-        System.out.println("Failed: " + failure.getDescription().getMethodName());
+        print("Failed", failure.getDescription());
     }
 
     public void testAssumptionFailure(Failure failure) {
-        System.out.println("Assumption failed: " + failure.getDescription().getMethodName());
+        print("Assumption failed", failure.getDescription());
     }
 
     public void testIgnored(Description description) throws Exception {
-        System.out.println("Ignored: " + description.getMethodName());
+        print("Ignored", description);
+    }
+
+    private void print(String actionName, Description description) {
+        System.out.println(actionName + "(method name): " + description.getMethodName());
+        System.out.println(actionName + "(class name): " + description.getClassName());
+        System.out.println(actionName + "(display name): " + description.getDisplayName());
     }
 }
