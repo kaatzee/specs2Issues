@@ -1,5 +1,6 @@
 package s2i.junitlistener;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +9,11 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(MyRunner.class)
 public class RunListenerTest {
+
+    @Before
+    public void setUp() throws Exception {
+        throw new RuntimeException("Exception in beforeAll.");
+    }
 
     @Test
     public void testListener(){
