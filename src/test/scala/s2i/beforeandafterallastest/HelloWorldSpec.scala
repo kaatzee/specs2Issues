@@ -11,8 +11,10 @@ class HelloWorldSpec extends SpecificationWithJUnit with BeforeAfterAll {
       HelloWorld.sayHelloTo("Mickey") === "Hello Mickey!"
     }
 
-    "say to Goofy" in {
-      HelloWorld.sayHelloTo("Goofy") === "Hello Goofy!"
+    "or not " >> {
+      "say to Goofy" in {
+        HelloWorld.sayHelloTo("Goofy") === "Hello Goofy!"
+      }
     }
 
     "add two to 6" in {
